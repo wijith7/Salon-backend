@@ -1,7 +1,7 @@
 package com.wijith.service.impl;
 
 import com.wijith.exception.UserException;
-import com.wijith.modal.User;
+import com.wijith.model.User;
 import com.wijith.repository.UserRepository;
 import com.wijith.service.UserService;
 import lombok.RequiredArgsConstructor;

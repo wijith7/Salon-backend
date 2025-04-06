@@ -1,7 +1,7 @@
 package com.wijith.service;
 
 import com.wijith.exception.UserException;
-import com.wijith.modal.User;
+import com.wijith.model.User;
 
 import java.util.List;
 

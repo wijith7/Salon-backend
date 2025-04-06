@@ -1,4 +1,4 @@
-package com.wijith.payload.respons;
+package com.wijith.payload.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

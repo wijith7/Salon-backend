@@ -1,4 +1,4 @@
-package com.wijith.modal;
+package com.wijith.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,7 +13,6 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.security.SecureRandom;
 import java.time.LocalDateTime;
 
 @Entity

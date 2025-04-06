@@ -1,6 +1,6 @@
 package com.wijith.exception;
 
-import com.wijith.payload.respons.ExceptionResponse;
+import com.wijith.payload.response.ExceptionResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

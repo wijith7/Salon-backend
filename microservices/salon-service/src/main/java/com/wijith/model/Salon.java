@@ -1,11 +1,10 @@
-package com.wijith.modal;
+package com.wijith.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalTime;
 import java.util.List;
-import java.security.PrivateKey;
 
 @Entity
 @Data
