@@ -16,29 +16,30 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/api/users")
-    public ResponseEntity<User> createUser(@RequestBody @Valid User user) {
-        User createdUser = userService.createUser(user);
-        return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
+    @ResponseStatus(HttpStatus.CREATED)
+    public User createUser(@RequestBody @Valid User user) {
+        return userService.createUser(user);
     }
 
     @GetMapping("/api/users")
-    public ResponseEntity <List<User>> getUser(){
-        List<User> users = userService.getAllUsers();
-        return new ResponseEntity<>(users,HttpStatus.OK);
+    @ResponseStatus(HttpStatus.CREATED)
+    public List <User> getUser(){
+       return userService.getAllUsers();
     }
     @GetMapping("/api/users/{userId}")
-    public ResponseEntity <User> getUserByID(@PathVariable("userId") Long id) throws Exception {
-            User user = userService.getUserById(id);
-            return new ResponseEntity<>(user,HttpStatus.OK);
+    @ResponseStatus(HttpStatus.CREATED)
+    public User getUserByID(@PathVariable("userId") Long id) throws Exception {
+            return userService.getUserById(id);
     }
     @PutMapping("/api/users/{id}")
-    public ResponseEntity <User> updateUser (@RequestBody User user, @PathVariable Long id) throws Exception {
-        User UpdatedUser = userService.updateUser(id,user);
-        return new ResponseEntity<>(UpdatedUser,HttpStatus.OK);
+    @ResponseStatus(HttpStatus.CREATED)
+    public User updateUser (@RequestBody User user, @PathVariable Long id) throws Exception {
+        return userService.updateUser(id,user);
     }
     @DeleteMapping("/api/users/{id}")
-    public ResponseEntity <String> deleteUserById(@PathVariable Long id ) throws Exception{
+    @ResponseStatus(HttpStatus.CREATED)
+    public String deleteUserById(@PathVariable Long id ) throws Exception{
         userService.deleteUser(id);
-        return new ResponseEntity<>("User deleted",HttpStatus.ACCEPTED);
+        return "User deleted";
     }
 }
