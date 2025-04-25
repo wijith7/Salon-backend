@@ -59,7 +59,7 @@ public class SalonController {
 
     @GetMapping ("{salonId}")
     @ResponseStatus(HttpStatus.OK)
-    public SalonDTO getAllSalonById( @PathVariable Long salonId) throws Exception {
+    public SalonDTO getSalonById( @PathVariable Long salonId) throws Exception {
 
         Salon salon = salonService.getSalonById(salonId);
 
@@ -68,7 +68,7 @@ public class SalonController {
     }
 
     // http://localhost:5002/api/salons/search?city=colombo
-    @GetMapping ("{search}")
+    @GetMapping ("search")
     @ResponseStatus(HttpStatus.OK)
     public List<SalonDTO> searchSalons(@RequestParam ("city") String city) throws Exception {
 
