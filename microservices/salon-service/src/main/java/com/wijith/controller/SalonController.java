@@ -29,7 +29,7 @@ public class SalonController {
         return SalonMapper.mapToDTO(salon);
     }
 
-    @PatchMapping("{/salonId}")
+    @PatchMapping("{salonId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public SalonDTO updateSalon (@RequestBody SalonDTO salonDTO,
     @PathVariable Long salonId) throws Exception {
@@ -41,11 +41,9 @@ public class SalonController {
     }
 
     @GetMapping
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ResponseStatus(HttpStatus.OK)
     public List<SalonDTO> getAllSalons() throws Exception {
 
-        UserDTO userDTO = new UserDTO();
-        userDTO.setId(1L);
         List <Salon> salons = salonService.getAllSalon();
         List <SalonDTO> salonDTOS = salons.stream().map((salon) ->
         {
@@ -56,6 +54,46 @@ public class SalonController {
         }
         ).toList();
         return salonDTOS;
+
+    }
+
+    @GetMapping ("{salonId}")
+    @ResponseStatus(HttpStatus.OK)
+    public SalonDTO getAllSalonById( @PathVariable Long salonId) throws Exception {
+
+        Salon salon = salonService.getSalonById(salonId);
+
+        return SalonMapper.mapToDTO(salon);
+
+    }
+
+    // http://localhost:5002/api/salons/search?city=colombo
+    @GetMapping ("{search}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<SalonDTO> searchSalons(@RequestParam ("city") String city) throws Exception {
+
+        List <Salon> salons = salonService.searchSalonByCity(city);
+        List <SalonDTO> salonDTOS = salons.stream().map((salon) ->
+                {
+
+                    SalonDTO salonDTO = SalonMapper.mapToDTO(salon);
+                    return salonDTO;
+
+                }
+        ).toList();
+        return salonDTOS;
+
+    }
+
+    @GetMapping ("/owner")
+    @ResponseStatus(HttpStatus.OK)
+    public SalonDTO getAllSalonByOwnerId( @PathVariable Long owner) throws Exception {
+        UserDTO userDTO = new UserDTO();
+        userDTO.setId(1L);
+
+        Salon salon = salonService.getSalonByOwnerId(userDTO.getId());
+
+        return SalonMapper.mapToDTO(salon);
 
     }
 }

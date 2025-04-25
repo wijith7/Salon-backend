@@ -26,7 +26,7 @@ public class SalonServiceImpl implements SalonService {
         salon.setOwnerId(user.getId());
         salon.setOpenTime(req.getOpenTime());
         salon.setCloseTime(req.getCloseTime());
-        salon.setPhonenumber(req.getPhonenumber());
+        salon.setPhoneNumber(req.getPhoneNumber());
 
         return salonRepository.save(salon);
     }
@@ -42,7 +42,7 @@ public class SalonServiceImpl implements SalonService {
             existingSalon.setEmail(salon.getEmail());
             existingSalon.setImages(salon.getImages());
             existingSalon.setAddress(salon.getAddress());
-            existingSalon.setPhonenumber(salon.getPhonenumber());
+            existingSalon.setPhoneNumber(salon.getPhoneNumber());
             existingSalon.setOpenTime(salon.getOpenTime());
             existingSalon.setCloseTime(salon.getCloseTime());
             existingSalon.setOwnerId(user.getId());

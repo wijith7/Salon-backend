@@ -21,7 +21,7 @@ public class Salon {
     private String address;
 
     @Column(nullable = false)
-    private String phonenumber;
+    private String phoneNumber;
     @Column(nullable = false)
     private String email;
 

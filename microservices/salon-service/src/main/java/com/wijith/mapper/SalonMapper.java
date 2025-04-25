@@ -13,7 +13,7 @@ public class SalonMapper {
         salonDTO.setCloseTime(salon.getCloseTime());
         salonDTO.setImages(salon.getImages());
         salonDTO.setName(salon.getName());
-        salonDTO.setPhonenumber(salon.getPhonenumber());
+        salonDTO.setPhoneNumber(salon.getPhoneNumber());
         salonDTO.setOpenTime(salon.getOpenTime());
         salonDTO.setOwnerId(salon.getOwnerId());
         return salonDTO;
